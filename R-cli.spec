@@ -4,7 +4,7 @@
 
 Name:             R-%{packname}
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -72,5 +72,8 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Wed Mar 14 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> 1.0.0-1
 - initial package for Fedora
