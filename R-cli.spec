@@ -2,15 +2,13 @@
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
 URL:              https://CRAN.R-project.org/package=%{packname}
-#Source0:          https://cran.r-project.org/src/contrib/#{packname}_#{version}.tar.gz
-# Remove Menlo-Regular.ttf and references in cli/R/html-readme.R
-Source0:          %{packname}-fedora_%{version}.tar.gz
+Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
 
 # Here's the R view of the dependencies world:
 # Depends:
@@ -82,6 +80,9 @@ _R_CHECK_FORCE_SUGGESTS_=0 %{_bindir}/R CMD check %{packname}
 
 
 %changelog
+* Wed Mar 20 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.1.0-1
+- Update to latest version
+
 * Thu Feb 21 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.0.1-1
 - Update to latest version
 
