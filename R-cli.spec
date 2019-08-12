@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          1.1.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -18,13 +18,6 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 # Enhances:
 
 BuildArch:        noarch
-Requires:         R-core
-Requires:         R-assertthat
-Requires:         R-crayon >= 1.3.4
-Requires:         R-methods
-Requires:         R-utils
-Suggests:         R-fansi
-Suggests:         R-webshot
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-assertthat
@@ -80,6 +73,9 @@ _R_CHECK_FORCE_SUGGESTS_=0 %{_bindir}/R CMD check %{packname}
 
 
 %changelog
+* Sun Aug 11 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.1.0-3
+- Remove explicit dependencies provided by automatic dependency generator
+
 * Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
