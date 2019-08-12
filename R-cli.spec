@@ -1,6 +1,8 @@
 %global packname  cli
 %global rlibdir  %{_datadir}/R/library
 
+%global __suggests_exclude ^R\\((webshot)\\)
+
 Name:             R-%{packname}
 Version:          1.1.0
 Release:          3%{?dist}
