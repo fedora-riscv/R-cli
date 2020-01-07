@@ -4,8 +4,8 @@
 %global __suggests_exclude ^R\\((webshot)\\)
 
 Name:             R-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}
+Version:          2.0.0
+Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -14,8 +14,8 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-crayon >= 1.3.4, R-methods, R-utils
-# Suggests:  R-covr, R-fansi, R-mockery, R-testthat, R-webshot, R-withr
+# Imports:   R-assertthat, R-crayon >= 1.3.4, R-glue, R-methods, R-utils, R-fansi
+# Suggests:  R-callr, R-covr, R-htmlwidgets, R-knitr, R-mockery, R-rmarkdown, R-rstudioapi, R-prettycode, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -24,18 +24,27 @@ BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-assertthat
 BuildRequires:    R-crayon >= 1.3.4
+BuildRequires:    R-glue
 BuildRequires:    R-methods
 BuildRequires:    R-utils
 BuildRequires:    R-fansi
+BuildRequires:    R-callr
+BuildRequires:    R-htmlwidgets
+BuildRequires:    R-knitr
 BuildRequires:    R-mockery
+BuildRequires:    R-rmarkdown
+BuildRequires:    R-rstudioapi
+BuildRequires:    R-prettycode
 BuildRequires:    R-testthat
-#BuildRequires:    R-webshot
 BuildRequires:    R-withr
 
 %description
-A suite of tools designed to build attractive command line interfaces
-('CLIs'). Includes tools for drawing rules, boxes, trees, and 'Unicode'
-symbols with 'ASCII' alternatives.
+A suite of tools to build attractive command line interfaces ('CLIs'), from
+semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom
+themes via a 'CSS'-like language. It also contains a number of lower level
+'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII'
+alternatives. It integrates with the 'crayon' package to support 'ANSI'
+terminal colors.
 
 
 %prep
@@ -57,11 +66,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 %check
 export LANG=C.UTF-8
-_R_CHECK_FORCE_SUGGESTS_=0 %{_bindir}/R CMD check %{packname}
+%{_bindir}/R CMD check %{packname}
 
 
 %files
 %dir %{rlibdir}/%{packname}
+%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/DESCRIPTION
 %license %{rlibdir}/%{packname}/LICENSE
@@ -71,10 +81,15 @@ _R_CHECK_FORCE_SUGGESTS_=0 %{_bindir}/R CMD check %{packname}
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/demo.R
+%{rlibdir}/%{packname}/examples
+%{rlibdir}/%{packname}/logo.txt
+%{rlibdir}/%{packname}/scripts
 
 
 %changelog
+* Tue Jan 07 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.0-1
+- Update to latest version
+
 * Sun Aug 11 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 1.1.0-3
 - Remove explicit dependencies provided by automatic dependency generator
 
