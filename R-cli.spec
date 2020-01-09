@@ -2,7 +2,7 @@
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -13,7 +13,7 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 # Here's the R view of the dependencies world:
 # Depends:
 # Imports:   R-assertthat, R-crayon >= 1.3.4, R-glue, R-methods, R-utils, R-fansi
-# Suggests:  R-callr, R-covr, R-htmlwidgets, R-knitr, R-mockery, R-rmarkdown, R-rstudioapi, R-prettycode, R-testthat, R-withr
+# Suggests:  R-callr, R-covr, R-htmlwidgets, R-knitr, R-mockery, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -32,7 +32,7 @@ BuildRequires:    R-knitr
 BuildRequires:    R-mockery
 BuildRequires:    R-rmarkdown
 BuildRequires:    R-rstudioapi
-BuildRequires:    R-prettycode
+BuildRequires:    R-prettycode >= 1.1.0
 BuildRequires:    R-testthat
 BuildRequires:    R-withr
 
@@ -85,6 +85,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Thu Jan 09 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.1-1
+- Update to latest version
+
 * Tue Jan 07 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.0-1
 - Update to latest version
 
