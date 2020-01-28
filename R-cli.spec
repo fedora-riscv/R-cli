@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          2.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -85,6 +85,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Thu Jan 09 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.1-1
 - Update to latest version
 
