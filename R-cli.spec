@@ -1,14 +1,15 @@
-%global packname  cli
+%global packname cli
+%global packver  2.0.2
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.0.1
-Release:          2%{?dist}
+Version:          2.0.2
+Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
 URL:              https://CRAN.R-project.org/package=%{packname}
-Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
+Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.tar.gz
 
 # Here's the R view of the dependencies world:
 # Depends:
@@ -85,6 +86,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Fri Feb 28 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.2-1
+- Update to latest version
+
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
