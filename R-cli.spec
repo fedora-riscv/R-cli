@@ -1,10 +1,12 @@
+%bcond_with check
+
 %global packname cli
 %global packver  2.0.2
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
 Version:          2.0.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -27,6 +29,7 @@ BuildRequires:    R-glue
 BuildRequires:    R-methods
 BuildRequires:    R-utils
 BuildRequires:    R-fansi
+%if %{with check}
 BuildRequires:    R-callr
 BuildRequires:    R-htmlwidgets
 BuildRequires:    R-knitr
@@ -36,6 +39,7 @@ BuildRequires:    R-rstudioapi
 BuildRequires:    R-prettycode >= 1.1.0
 BuildRequires:    R-testthat
 BuildRequires:    R-withr
+%endif
 
 %description
 A suite of tools to build attractive command line interfaces ('CLIs'), from
@@ -64,9 +68,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %check
+%if %{with check}
 export LANG=C.UTF-8
 %{_bindir}/R CMD check %{packname}
-
+%endif
 
 %files
 %dir %{rlibdir}/%{packname}
@@ -86,6 +91,10 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Wed Jun  3 2020 Tom Callaway <spot@fedoraproject.org> - 2.0.2-2
+- conditionalize check to break testthat loop
+- rebuild for R 4
+
 * Fri Feb 28 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.2-1
 - Update to latest version
 
