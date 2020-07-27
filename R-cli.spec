@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          2.0.2
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -91,6 +91,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.2-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Wed Jun  3 2020 Tom Callaway <spot@fedoraproject.org> - 2.0.2-2
 - conditionalize check to break testthat loop
 - rebuild for R 4
