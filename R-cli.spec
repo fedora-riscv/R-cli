@@ -1,11 +1,11 @@
-%bcond_with check
+%bcond_with bootstrap
 
 %global packname cli
-%global packver  2.1.0
+%global packver  2.2.0
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -29,7 +29,7 @@ BuildRequires:    R-glue
 BuildRequires:    R-methods
 BuildRequires:    R-utils
 BuildRequires:    R-fansi
-%if %{with check}
+%if %{without bootstrap}
 BuildRequires:    R-callr
 BuildRequires:    R-htmlwidgets
 BuildRequires:    R-knitr
@@ -69,7 +69,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %check
-%if %{with check}
+%if %{without bootstrap}
 export LANG=C.UTF-8
 %{_bindir}/R CMD check %{packname}
 %endif
@@ -92,6 +92,10 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Sat Nov 28 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.2.0-1
+- Update to latest version (#1899946)
+- Rename check conditional to bootstrap
+
 * Mon Oct 12 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.1.0-1
 - Update to latest version (#1887512)
 
