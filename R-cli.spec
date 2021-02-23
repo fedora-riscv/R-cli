@@ -1,12 +1,12 @@
 %bcond_with bootstrap
 
 %global packname cli
-%global packver  2.2.0
+%global packver  2.3.0
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.2.0
-Release:          2%{?dist}
+Version:          2.3.0
+Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -15,8 +15,8 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-crayon >= 1.3.4, R-glue, R-methods, R-utils, R-fansi
-# Suggests:  R-callr, R-covr, R-htmlwidgets, R-knitr, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-withr
+# Imports:   R-assertthat, R-glue, R-methods, R-utils
+# Suggests:  R-callr, R-covr, R-grDevices, R-htmlwidgets, R-knitr, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -24,13 +24,12 @@ BuildArch:        noarch
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-assertthat
-BuildRequires:    R-crayon >= 1.3.4
 BuildRequires:    R-glue
 BuildRequires:    R-methods
 BuildRequires:    R-utils
-BuildRequires:    R-fansi
 %if %{without bootstrap}
 BuildRequires:    R-callr
+BuildRequires:    R-grDevices
 BuildRequires:    R-htmlwidgets
 BuildRequires:    R-knitr
 BuildRequires:    R-mockery
@@ -44,11 +43,10 @@ BuildRequires:    R-withr
 
 %description
 A suite of tools to build attractive command line interfaces ('CLIs'), from
-semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom
-themes via a 'CSS'-like language. It also contains a number of lower level
-'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII'
-alternatives. It integrates with the 'crayon' package to support 'ANSI'
-terminal colors.
+semantic elements: headings, lists, alerts, paragraphs, etc. Supports
+custom themes via a 'CSS'-like language. It also contains a number of lower
+level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with
+'ASCII' alternatives. It support ANSI colors and text styles as well.
 
 
 %prep
@@ -92,6 +90,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Sun Feb 07 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.3.0-1
+- Update to latest version (#1922820)
+
 * Mon Jan 25 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.2.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
