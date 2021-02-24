@@ -1,11 +1,11 @@
 %bcond_with bootstrap
 
 %global packname cli
-%global packver  2.3.0
+%global packver  2.3.1
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -90,6 +90,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Tue Feb 23 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.3.1-1
+- Update to latest version (#1932004)
+
 * Sun Feb 07 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.3.0-1
 - Update to latest version (#1922820)
 
