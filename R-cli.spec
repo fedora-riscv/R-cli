@@ -1,11 +1,11 @@
 %bcond_with bootstrap
 
 %global packname cli
-%global packver  2.3.1
+%global packver  2.4.0
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.3.1
+Version:          2.4.0
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -15,7 +15,7 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-glue, R-methods, R-utils
+# Imports:   R-glue, R-methods, R-utils
 # Suggests:  R-callr, R-covr, R-grDevices, R-htmlwidgets, R-knitr, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
@@ -23,7 +23,6 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 BuildArch:        noarch
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
-BuildRequires:    R-assertthat
 BuildRequires:    R-glue
 BuildRequires:    R-methods
 BuildRequires:    R-utils
@@ -90,6 +89,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Tue Apr 06 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.4.0-1
+- Update to latest version (#1946272)
+
 * Tue Feb 23 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.3.1-1
 - Update to latest version (#1932004)
 
