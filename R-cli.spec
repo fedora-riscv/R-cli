@@ -1,11 +1,11 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global packname cli
-%global packver  2.4.0
+%global packver  2.5.0
 %global rlibdir  %{_datadir}/R/library
 
 Name:             R-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -15,8 +15,8 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-glue, R-methods, R-utils
-# Suggests:  R-callr, R-covr, R-grDevices, R-htmlwidgets, R-knitr, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-withr
+# Imports:   R-glue, R-utils
+# Suggests:  R-callr, R-covr, R-grDevices, R-htmlwidgets, R-knitr, R-methods, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-tibble, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -24,19 +24,20 @@ BuildArch:        noarch
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-glue
-BuildRequires:    R-methods
 BuildRequires:    R-utils
 %if %{without bootstrap}
 BuildRequires:    R-callr
 BuildRequires:    R-grDevices
 BuildRequires:    R-htmlwidgets
 BuildRequires:    R-knitr
+BuildRequires:    R-methods
 BuildRequires:    R-mockery
 BuildRequires:    R-ps >= 1.3.4.9000
 BuildRequires:    R-rmarkdown
 BuildRequires:    R-rstudioapi
 BuildRequires:    R-prettycode >= 1.1.0
 BuildRequires:    R-testthat
+BuildRequires:    R-tibble
 BuildRequires:    R-withr
 %endif
 
@@ -89,6 +90,11 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Mon Jun  7 2021 Tom Callaway <spot@fedoraproject.org> - 2.5.0-1
+- bootstrap
+- update to 2.5.0
+- rebuild for R 4.1.0
+
 * Tue Apr 06 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.4.0-1
 - Update to latest version (#1946272)
 
