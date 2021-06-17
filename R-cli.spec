@@ -1,4 +1,4 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 
 %global packname cli
 %global packver  2.5.0
@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          2.5.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -90,6 +90,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Thu Jun 17 2021 Tom Callaway <spot@fedoraproject.org> - 2.5.0-2
+- bootstrap off
+
 * Mon Jun  7 2021 Tom Callaway <spot@fedoraproject.org> - 2.5.0-1
 - bootstrap
 - update to 2.5.0
