@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          2.5.0
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -90,6 +90,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Wed Jul 21 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2.5.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
 * Thu Jun 17 2021 Tom Callaway <spot@fedoraproject.org> - 2.5.0-2
 - bootstrap off
 
