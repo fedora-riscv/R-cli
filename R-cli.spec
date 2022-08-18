@@ -1,12 +1,12 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global packname cli
-%global packver  2.5.0
-%global rlibdir  %{_datadir}/R/library
+%global packver  3.3.0
+%global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          2.5.0
-Release:          5%{?dist}
+Version:          %{packver}
+Release:          1%{?dist}
 Summary:          Helpers for Developing Command Line Interfaces
 
 License:          MIT
@@ -20,24 +20,29 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 # LinkingTo:
 # Enhances:
 
-BuildArch:        noarch
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
-BuildRequires:    R-glue
+BuildRequires:    R-glue >= 1.6.0
 BuildRequires:    R-utils
 %if %{without bootstrap}
+BuildRequires:    R-asciicast
 BuildRequires:    R-callr
+BuildRequires:    R-digest
 BuildRequires:    R-grDevices
+BuildRequires:    R-htmltools
 BuildRequires:    R-htmlwidgets
 BuildRequires:    R-knitr
 BuildRequires:    R-methods
 BuildRequires:    R-mockery
+BuildRequires:    R-processx
 BuildRequires:    R-ps >= 1.3.4.9000
+BuildRequires:    R-rlang
 BuildRequires:    R-rmarkdown
 BuildRequires:    R-rstudioapi
-BuildRequires:    R-prettycode >= 1.1.0
+BuildRequires:    R-shiny
 BuildRequires:    R-testthat
 BuildRequires:    R-tibble
+BuildRequires:    R-whoami
 BuildRequires:    R-withr
 %endif
 
@@ -87,9 +92,17 @@ export LANG=C.UTF-8
 %{rlibdir}/%{packname}/examples
 %{rlibdir}/%{packname}/logo.txt
 %{rlibdir}/%{packname}/scripts
+%{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}/shiny
 
 
 %changelog
+* Thu Aug 18 2022 Tom Callaway <spot@fedoraproject.org> - 3.3.0-1
+- update to 3.3.0
+- rebuild for R 4.2.1
+- bootstrap on
+
 * Wed Jul 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 2.5.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
