@@ -1,4 +1,5 @@
-%bcond_with bootstrap
+# R-asciicast not available
+%bcond_with check
 
 %global packname cli
 %global packver  3.3.0
@@ -24,7 +25,7 @@ BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-glue >= 1.6.0
 BuildRequires:    R-utils
-%if %{without bootstrap}
+%if %{with check}
 BuildRequires:    R-asciicast
 BuildRequires:    R-callr
 BuildRequires:    R-digest
@@ -72,7 +73,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %check
-%if %{without bootstrap}
+%if %{with check}
 export LANG=C.UTF-8
 %{_bindir}/R CMD check %{packname}
 %endif
