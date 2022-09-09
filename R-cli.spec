@@ -1,8 +1,7 @@
-# R-asciicast not available
-%bcond_with check
+%bcond_without check
 
 %global packname cli
-%global packver  3.3.0
+%global packver  3.4.0
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
@@ -16,8 +15,8 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-glue, R-utils
-# Suggests:  R-callr, R-covr, R-grDevices, R-htmlwidgets, R-knitr, R-methods, R-mockery, R-ps >= 1.3.4.9000, R-rmarkdown, R-rstudioapi, R-prettycode >= 1.1.0, R-testthat, R-tibble, R-withr
+# Imports:   R-utils
+# Suggests:  R-callr, R-covr, R-digest, R-glue >= 1.6.0, R-grDevices, R-htmltools, R-htmlwidgets, R-knitr, R-methods, R-mockery, R-processx, R-ps >= 1.3.4.9000, R-rlang >= 1.0.2.9003, R-rmarkdown, R-projroot, R-rstudioapi, R-testthat, R-tibble, R-whoami, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -26,9 +25,9 @@ BuildRequires:    tex(latex)
 BuildRequires:    R-glue >= 1.6.0
 BuildRequires:    R-utils
 %if %{with check}
-BuildRequires:    R-asciicast
 BuildRequires:    R-callr
 BuildRequires:    R-digest
+BuildRequires:    R-glue >= 1.6.0
 BuildRequires:    R-grDevices
 BuildRequires:    R-htmltools
 BuildRequires:    R-htmlwidgets
@@ -37,10 +36,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-mockery
 BuildRequires:    R-processx
 BuildRequires:    R-ps >= 1.3.4.9000
-BuildRequires:    R-rlang
+BuildRequires:    R-rlang >= 1.0.2.9003
 BuildRequires:    R-rmarkdown
+BuildRequires:    R-rprojroot
 BuildRequires:    R-rstudioapi
-BuildRequires:    R-shiny
 BuildRequires:    R-testthat
 BuildRequires:    R-tibble
 BuildRequires:    R-whoami
@@ -99,6 +98,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Thu Sep  8 2022 Tom Callaway <spot@fedoraproject.org> - 3.4.0-1
+- update to 3.4.0
+
 * Thu Aug 18 2022 Tom Callaway <spot@fedoraproject.org> - 3.3.0-1
 - update to 3.3.0
 - rebuild for R 4.2.1
