@@ -1,3 +1,8 @@
+%bcond_without bootstrap
+%if %{with bootstrap}
+%global _without_check 1
+%endif
+
 %bcond_without check
 
 %global packname cli
@@ -99,6 +104,9 @@ export LANG=C.UTF-8
 
 
 %changelog
+* Sat Jun 17 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 3.6.0-1~bootstrap
+- Bootstrap for Fedora 38 riscv64 build.
+
 * Sat Jan 21 2023 Tom Callaway <spot@fedoraproject.org> - 3.6.0-1
 - update to 3.6.0
 
